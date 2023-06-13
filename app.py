@@ -1,6 +1,7 @@
 import os
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
+from register import add_to_existing_section, slack_event, send_to_slack_message
 
 app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
 
