@@ -21,7 +21,7 @@ def make_time_data(n):
     ]
     return data
 
-JSON_FILE_PATH = "register_date.json"  
+JSON_FILE_PATH = "JSON/register_date.json"  
 
 def add_to_existing_section(JSON_FILE_PATH, section_text, start, end):
     with open(JSON_FILE_PATH, "r+") as json_file:
@@ -60,7 +60,7 @@ def slack_events():
             add_to_existing_section("register_date.json", "起きたい時間(時)を選んでください", 0, 24)
             add_to_existing_section("register_date.json", "起きたい時間(分)を選んでください", 1, 60)
             
-            send_to_slack_message("register_date.json")
+            send_to_slack_message("JSON/register_date.json")
             
     return "", 200
 
