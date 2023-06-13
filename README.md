@@ -3,3 +3,7 @@
 
 ## 設定
 `slack_bolt`パッケージのダウンロード
+
+```
+pip install slack_bot
+```
