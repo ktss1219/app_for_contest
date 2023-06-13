@@ -4,7 +4,7 @@
 ## 設定
 各種パッケージのダウンロード
 
-```
+```python
 pip install slack_bot
 pip install flask
 ```
