@@ -11,4 +11,5 @@ git clone https://github.com/ktss1219/app_for_contest
 ```python
 pip install slack_bot
 pip install flask
+pip install firebase
 ```
