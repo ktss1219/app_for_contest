@@ -1,0 +1,2 @@
+# app_for_contest
+自らに罰を科すことで起床を促進するbot
