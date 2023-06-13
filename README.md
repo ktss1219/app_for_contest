@@ -1,6 +1,5 @@
 # app_for_contest
 "ヒリつき"によって起床を促進するbot
-with @KatagiriRintaro, @KoushiHiraoka
 
 ## 環境設定
 リポジトリのクローン
@@ -14,3 +13,4 @@ pip install slack_bot
 pip install flask
 pip install firebase
 ```
+
