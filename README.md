@@ -6,6 +6,13 @@
 ```python
 git clone https://github.com/ktss1219/app_for_contest
 ```
+環境変数の設定
+
+```python
+export "SLACK_BOT_TOKEN" = <ボットトークン>
+export "SLACK_APP_TOKEN" = <アプリレベルトークン>
+```
+
 各種パッケージのダウンロード
 
 ```python
