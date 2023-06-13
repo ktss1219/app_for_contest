@@ -88,7 +88,7 @@ def handle_secret_modal_submission(ack, body, client):
     user_input = body["view"]["state"]["values"]["secret_input"]["secret_input"]["value"]
     message = f"あなたの秘密は {user_input} です"
     client.chat_postMessage(channel="general", text=message)
-
+#
 
 # アプリ起動
 if __name__ == "__main__":
