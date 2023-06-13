@@ -1,0 +1,33 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "*おはようございます :sunny:*"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "*下のボタンを押して起きていることを教えてください* :wink:"
+			}
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "起きています",
+						"emoji": true
+					},
+					"value": "wakeup",
+					"action_id": "check_first_wakeup"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,120 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "*起きたい日付を選んでください* :calendar: "
+			}
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "datepicker",
+					"placeholder": {
+						"type": "plain_text",
+						"text": "Select a date",
+						"emoji": true
+					},
+					"action_id": "select_date"
+				}
+			]
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "*起きたい時間(時)を選んでください* :alarm_clock:"
+			}
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "static_select",
+					"placeholder": {
+						"type": "plain_text",
+						"text": "Select an item",
+						"emoji": true
+					},
+					"options": [
+						{
+							"text": {
+								"type": "plain_text",
+								"text": "*this is plain_text text*",
+								"emoji": true
+							},
+							"value": "value-2"
+						}
+					],
+					"action_id": "select_hour"
+				}
+			]
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "*起きたい時間(分)を選んでください* :alarm_clock:"
+			}
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "static_select",
+					"placeholder": {
+						"type": "plain_text",
+						"text": "Select an item",
+						"emoji": true
+					},
+					"options": [
+						{
+							"text": {
+								"type": "plain_text",
+								"text": "*this is plain_text text*",
+								"emoji": true
+							},
+							"value": "value-2"
+						}
+					],
+					"action_id": "select_minute"
+				}
+			]
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "登録",
+						"emoji": true
+					},
+					"confirm": {
+						"title": {
+							"type": "plain_text",
+							"text": "登録"
+						},
+						"text": {
+							"type": "mrkdwn",
+							"text": ":smiling_imp: この時間に起きるという覚悟はできましたか? :smiling_imp: "
+						},
+						"confirm": {
+							"type": "plain_text",
+							"text": "できた!"
+						},
+						"deny": {
+							"type": "plain_text",
+							"text": "変更する!"
+						}
+					},
+					"value": "OK",
+					"action_id": "register_date"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,40 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "*改めておはようございます :sunny:*"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "*二度寝の誘惑に勝ちましたね！:raised_hands:*"
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "*お手数ですが下のボタンを押して*\n*起きていることを教えてください！*:wink:"
+			}
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "起きています",
+						"emoji": true
+					},
+					"value": "wakeup",
+					"action_id": "check_2nd_wakeup"
+				}
+			]
+		}
+	]
+}
