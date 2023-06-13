@@ -2,8 +2,9 @@
 "ヒリつき"によって起床を促進するbot
 
 ## 設定
-`slack_bolt`パッケージのダウンロード
+各種パッケージのダウンロード
 
 ```
 pip install slack_bot
+pip install flask
 ```
