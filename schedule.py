@@ -35,8 +35,7 @@ def schedule_message(jsf, text, channel_id, scheduled_time):
 # 後に@app.actionに変更
 @app.message("test")
 def send_scheduled_message(message):
-    id = message['user']
-    mention = f"<@{id}>"
+    mention = f"<@{message['user']}>"
     
     # チャンネルID
     channel_id = "C05A7G0ARB7"
