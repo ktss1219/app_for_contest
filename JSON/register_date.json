@@ -46,7 +46,247 @@
                                 "emoji": true
                             },
                             "value": "value-2"
-                        }
+                        },
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "0",
+                                    "emoji": false
+                                },
+                                "value": "0"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "1",
+                                    "emoji": false
+                                },
+                                "value": "1"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "2",
+                                    "emoji": false
+                                },
+                                "value": "2"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "3",
+                                    "emoji": false
+                                },
+                                "value": "3"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "4",
+                                    "emoji": false
+                                },
+                                "value": "4"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "5",
+                                    "emoji": false
+                                },
+                                "value": "5"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "6",
+                                    "emoji": false
+                                },
+                                "value": "6"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "7",
+                                    "emoji": false
+                                },
+                                "value": "7"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "8",
+                                    "emoji": false
+                                },
+                                "value": "8"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "9",
+                                    "emoji": false
+                                },
+                                "value": "9"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "10",
+                                    "emoji": false
+                                },
+                                "value": "10"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "11",
+                                    "emoji": false
+                                },
+                                "value": "11"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "12",
+                                    "emoji": false
+                                },
+                                "value": "12"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "13",
+                                    "emoji": false
+                                },
+                                "value": "13"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "14",
+                                    "emoji": false
+                                },
+                                "value": "14"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "15",
+                                    "emoji": false
+                                },
+                                "value": "15"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "16",
+                                    "emoji": false
+                                },
+                                "value": "16"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "17",
+                                    "emoji": false
+                                },
+                                "value": "17"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "18",
+                                    "emoji": false
+                                },
+                                "value": "18"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "19",
+                                    "emoji": false
+                                },
+                                "value": "19"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "20",
+                                    "emoji": false
+                                },
+                                "value": "20"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "21",
+                                    "emoji": false
+                                },
+                                "value": "21"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "22",
+                                    "emoji": false
+                                },
+                                "value": "22"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "23",
+                                    "emoji": false
+                                },
+                                "value": "23"
+                            }
+                        ]
                     ],
                     "action_id": "select_hour"
                 }
@@ -77,7 +317,597 @@
                                 "emoji": true
                             },
                             "value": "value-2"
-                        }
+                        },
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "1",
+                                    "emoji": false
+                                },
+                                "value": "1"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "2",
+                                    "emoji": false
+                                },
+                                "value": "2"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "3",
+                                    "emoji": false
+                                },
+                                "value": "3"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "4",
+                                    "emoji": false
+                                },
+                                "value": "4"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "5",
+                                    "emoji": false
+                                },
+                                "value": "5"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "6",
+                                    "emoji": false
+                                },
+                                "value": "6"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "7",
+                                    "emoji": false
+                                },
+                                "value": "7"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "8",
+                                    "emoji": false
+                                },
+                                "value": "8"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "9",
+                                    "emoji": false
+                                },
+                                "value": "9"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "10",
+                                    "emoji": false
+                                },
+                                "value": "10"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "11",
+                                    "emoji": false
+                                },
+                                "value": "11"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "12",
+                                    "emoji": false
+                                },
+                                "value": "12"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "13",
+                                    "emoji": false
+                                },
+                                "value": "13"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "14",
+                                    "emoji": false
+                                },
+                                "value": "14"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "15",
+                                    "emoji": false
+                                },
+                                "value": "15"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "16",
+                                    "emoji": false
+                                },
+                                "value": "16"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "17",
+                                    "emoji": false
+                                },
+                                "value": "17"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "18",
+                                    "emoji": false
+                                },
+                                "value": "18"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "19",
+                                    "emoji": false
+                                },
+                                "value": "19"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "20",
+                                    "emoji": false
+                                },
+                                "value": "20"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "21",
+                                    "emoji": false
+                                },
+                                "value": "21"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "22",
+                                    "emoji": false
+                                },
+                                "value": "22"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "23",
+                                    "emoji": false
+                                },
+                                "value": "23"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "24",
+                                    "emoji": false
+                                },
+                                "value": "24"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "25",
+                                    "emoji": false
+                                },
+                                "value": "25"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "26",
+                                    "emoji": false
+                                },
+                                "value": "26"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "27",
+                                    "emoji": false
+                                },
+                                "value": "27"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "28",
+                                    "emoji": false
+                                },
+                                "value": "28"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "29",
+                                    "emoji": false
+                                },
+                                "value": "29"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "30",
+                                    "emoji": false
+                                },
+                                "value": "30"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "31",
+                                    "emoji": false
+                                },
+                                "value": "31"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "32",
+                                    "emoji": false
+                                },
+                                "value": "32"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "33",
+                                    "emoji": false
+                                },
+                                "value": "33"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "34",
+                                    "emoji": false
+                                },
+                                "value": "34"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "35",
+                                    "emoji": false
+                                },
+                                "value": "35"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "36",
+                                    "emoji": false
+                                },
+                                "value": "36"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "37",
+                                    "emoji": false
+                                },
+                                "value": "37"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "38",
+                                    "emoji": false
+                                },
+                                "value": "38"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "39",
+                                    "emoji": false
+                                },
+                                "value": "39"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "40",
+                                    "emoji": false
+                                },
+                                "value": "40"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "41",
+                                    "emoji": false
+                                },
+                                "value": "41"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "42",
+                                    "emoji": false
+                                },
+                                "value": "42"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "43",
+                                    "emoji": false
+                                },
+                                "value": "43"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "44",
+                                    "emoji": false
+                                },
+                                "value": "44"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "45",
+                                    "emoji": false
+                                },
+                                "value": "45"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "46",
+                                    "emoji": false
+                                },
+                                "value": "46"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "47",
+                                    "emoji": false
+                                },
+                                "value": "47"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "48",
+                                    "emoji": false
+                                },
+                                "value": "48"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "49",
+                                    "emoji": false
+                                },
+                                "value": "49"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "50",
+                                    "emoji": false
+                                },
+                                "value": "50"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "51",
+                                    "emoji": false
+                                },
+                                "value": "51"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "52",
+                                    "emoji": false
+                                },
+                                "value": "52"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "53",
+                                    "emoji": false
+                                },
+                                "value": "53"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "54",
+                                    "emoji": false
+                                },
+                                "value": "54"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "55",
+                                    "emoji": false
+                                },
+                                "value": "55"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "56",
+                                    "emoji": false
+                                },
+                                "value": "56"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "57",
+                                    "emoji": false
+                                },
+                                "value": "57"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "58",
+                                    "emoji": false
+                                },
+                                "value": "58"
+                            }
+                        ],
+                        [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "59",
+                                    "emoji": false
+                                },
+                                "value": "59"
+                            }
+                        ]
                     ],
                     "action_id": "select_minute"
                 }
