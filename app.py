@@ -30,20 +30,16 @@ def add_to_existing_section(json_file_path, section_text, start, end):
     with open(json_file_path, "r+") as json_file:
         fcntl.flock(json_file.fileno(), fcntl.LOCK_EX)
         json_data = json.load(json_file)
-        blocks = json_data["blocks"]
-
-        for block in blocks:
-            if block.get("type") == "section":
-                block_text = block.get("text", {}).get("text")
-
-                if block_text == section_text:
-                    accessory = block.get("accessory")
-
-                    if accessory and accessory.get("type") == "static_select":
-                        for i in range(start, end):
-                            data = make_time_data(i)
-                            accessory["options"].extend(data)
-
+        
+        if end == 24:
+            for i in range(start, end):
+                option = make_time_data(i)
+                json_data["blocks"][3]["elements"][0]["options"].append(option)
+        else:
+             for i in range(start, end):
+                option = make_time_data(i)
+                json_data["blocks"][5]["elements"][0]["options"].append(option)
+    
         json_file.seek(0)
         json.dump(json_data, json_file, indent=4)
         json_file.truncate()
@@ -74,7 +70,7 @@ def handle_register_date(ack, body, say):
     selected_hour = selected_values[1] if len(selected_values) >= 2 else None
     selected_minute = selected_values[2] if len(selected_values) >= 3 else None
     year, month , day = map(int, selected_date.split("-"))
-    month = int(selected_hour)
+    hour = int(selected_hour)
     minute = int(selected_minute)
     modal_json_file = "JSON/secret_modal.json"
     with open(modal_json_file, "r") as file:
