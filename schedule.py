@@ -8,11 +8,11 @@ from datetime import datetime, timedelta
 app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
 
 # UnixTime変換
-def convert_to_timestamp(datetime_):
+def convert_to_timestamp(year, month, day, hour, minute):
     # 入力形式の文字列を日時オブジェクトに変換
-    datetime_obj = datetime.strptime(datetime_, "%Y%m%d%H%M")
+    datetime_obj = datetime(year, month, day, hour, minute)
 
-    timestamp = (datetime_obj - datetime(1970, 1, 1, 9, 0)).total_seconds()
+    timestamp = (datetime_obj - datetime(1970, 1, 1, 9, 0)).total_seconds() - 600 # 10分前
 
     return int(timestamp)  # 整数値で返す
 
@@ -36,7 +36,7 @@ def send_scheduled_message():
     text = "おはようございます！起床予定時刻の１０分前になりました！"
 
     # 予定時刻の計算（10分前）
-    scheduled_time = convert_to_timestamp("202306141448")
+    scheduled_time = convert_to_timestamp(2023, 6, 14, 16, 34)# YYYYMMDDHHMM
 
     schedule_message(text, channel_id, scheduled_time)
 
