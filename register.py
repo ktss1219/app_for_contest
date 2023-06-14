@@ -13,6 +13,8 @@ GLOBAL_DAY=0
 GLOBAL_HOUR=0
 GLOBAL_MINUTE=0
 
+#
+
 def send_message_from_json(json_file_path, channel_id):
     with open(json_file_path, "r") as file:
         json_data = json.load(file)
