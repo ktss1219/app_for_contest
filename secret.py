@@ -1,4 +1,4 @@
-#to Firebase Admin SDK Module
+#to Firebase Admin SDK Module 
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
@@ -8,7 +8,7 @@ cred = credentials.Certificate('FIREBASE_KEY')  # Firebase Admin SDKの秘密鍵
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
-#ここでユーザの秘密を保存✨
+#ここでユーザの秘密を保存✨✨
 def save_to_firestore(user_input):
     doc_ref = db.collection('user').document('useId')  # 'user_messages'という名前の新しいコレクションを作成
     doc_ref.set({
