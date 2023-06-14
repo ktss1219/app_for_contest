@@ -61,9 +61,9 @@ def extract_selected_values(payload):
 
 @app.message("登録")
 def select_date(say):
-    add_to_existing_section("register_date.json", "起きたい時間(時)を選んでください", 0, 24)
-    add_to_existing_section("register_date.json", "起きたい時間(分)を選んでください", 1, 60)
-    send_message_from_json("register_date.json","general")
+    add_to_existing_section("JSON/register_date.json", "起きたい時間(時)を選んでください", 0, 24)
+    add_to_existing_section("JSON/register_date.json", "起きたい時間(分)を選んでください", 1, 60)
+    send_message_from_json("JSON/register_date.json","C05A7G0ARB7")
 
 
 @app.action("register_date")
@@ -87,8 +87,7 @@ def handle_secret_modal_submission(ack, body, client):
     ack()
     user_input = body["view"]["state"]["values"]["secret_input"]["secret_input"]["value"]
     message = f"あなたの秘密は {user_input} です"
-    client.chat_postMessage(channel="general", text=message)
-#
+    client.chat_postMessage(channel="C05A7G0ARB7", text=message)
 
 # アプリ起動
 if __name__ == "__main__":
