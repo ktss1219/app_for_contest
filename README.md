@@ -11,7 +11,6 @@ cd app_for_contest
 ```python
 export "SLACK_BOT_TOKEN" = <ボットトークン>
 export "SLACK_APP_TOKEN" = <アプリレベルトークン>
-export "FIREBASE_KEY" = <鍵>
 ```
 
 各種パッケージのダウンロード
