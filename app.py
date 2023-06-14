@@ -76,7 +76,7 @@ def handle_register_date(ack, body, say):
     year, month , day = map(int, selected_date.split("-"))
     month = int(selected_hour)
     minute = int(selected_minute)
-    modal_json_file = "secret_modal.json"
+    modal_json_file = "JSON/secret_modal.json"
     with open(modal_json_file, "r") as file:
         modal_json = json.load(file)
     app.client.views_open(trigger_id=say["trigger_id"], view=modal_json)

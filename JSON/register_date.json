@@ -1,120 +1,120 @@
 {
-	"blocks": [
-		{
-			"type": "section",
-			"text": {
-				"type": "mrkdwn",
-				"text": "*起きたい日付を選んでください* :calendar: "
-			}
-		},
-		{
-			"type": "actions",
-			"elements": [
-				{
-					"type": "datepicker",
-					"placeholder": {
-						"type": "plain_text",
-						"text": "Select a date",
-						"emoji": true
-					},
-					"action_id": "select_date"
-				}
-			]
-		},
-		{
-			"type": "section",
-			"text": {
-				"type": "mrkdwn",
-				"text": "*起きたい時間(時)を選んでください* :alarm_clock:"
-			}
-		},
-		{
-			"type": "actions",
-			"elements": [
-				{
-					"type": "static_select",
-					"placeholder": {
-						"type": "plain_text",
-						"text": "Select an item",
-						"emoji": true
-					},
-					"options": [
-						{
-							"text": {
-								"type": "plain_text",
-								"text": "*this is plain_text text*",
-								"emoji": true
-							},
-							"value": "value-2"
-						}
-					],
-					"action_id": "select_hour"
-				}
-			]
-		},
-		{
-			"type": "section",
-			"text": {
-				"type": "mrkdwn",
-				"text": "*起きたい時間(分)を選んでください* :alarm_clock:"
-			}
-		},
-		{
-			"type": "actions",
-			"elements": [
-				{
-					"type": "static_select",
-					"placeholder": {
-						"type": "plain_text",
-						"text": "Select an item",
-						"emoji": true
-					},
-					"options": [
-						{
-							"text": {
-								"type": "plain_text",
-								"text": "*this is plain_text text*",
-								"emoji": true
-							},
-							"value": "value-2"
-						}
-					],
-					"action_id": "select_minute"
-				}
-			]
-		},
-		{
-			"type": "actions",
-			"elements": [
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"text": "登録",
-						"emoji": true
-					},
-					"confirm": {
-						"title": {
-							"type": "plain_text",
-							"text": "登録"
-						},
-						"text": {
-							"type": "mrkdwn",
-							"text": ":smiling_imp: この時間に起きるという覚悟はできましたか? :smiling_imp: "
-						},
-						"confirm": {
-							"type": "plain_text",
-							"text": "できた!"
-						},
-						"deny": {
-							"type": "plain_text",
-							"text": "変更する!"
-						}
-					},
-					"value": "OK",
-					"action_id": "register_date"
-				}
-			]
-		}
-	]
+    "blocks": [
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "*\u8d77\u304d\u305f\u3044\u65e5\u4ed8\u3092\u9078\u3093\u3067\u304f\u3060\u3055\u3044* :calendar: "
+            }
+        },
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "datepicker",
+                    "placeholder": {
+                        "type": "plain_text",
+                        "text": "Select a date",
+                        "emoji": true
+                    },
+                    "action_id": "select_date"
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "*\u8d77\u304d\u305f\u3044\u6642\u9593(\u6642)\u3092\u9078\u3093\u3067\u304f\u3060\u3055\u3044* :alarm_clock:"
+            }
+        },
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "static_select",
+                    "placeholder": {
+                        "type": "plain_text",
+                        "text": "Select an item",
+                        "emoji": true
+                    },
+                    "options": [
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "*this is plain_text text*",
+                                "emoji": true
+                            },
+                            "value": "value-2"
+                        }
+                    ],
+                    "action_id": "select_hour"
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": "*\u8d77\u304d\u305f\u3044\u6642\u9593(\u5206)\u3092\u9078\u3093\u3067\u304f\u3060\u3055\u3044* :alarm_clock:"
+            }
+        },
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "static_select",
+                    "placeholder": {
+                        "type": "plain_text",
+                        "text": "Select an item",
+                        "emoji": true
+                    },
+                    "options": [
+                        {
+                            "text": {
+                                "type": "plain_text",
+                                "text": "*this is plain_text text*",
+                                "emoji": true
+                            },
+                            "value": "value-2"
+                        }
+                    ],
+                    "action_id": "select_minute"
+                }
+            ]
+        },
+        {
+            "type": "actions",
+            "elements": [
+                {
+                    "type": "button",
+                    "text": {
+                        "type": "plain_text",
+                        "text": "\u767b\u9332",
+                        "emoji": true
+                    },
+                    "confirm": {
+                        "title": {
+                            "type": "plain_text",
+                            "text": "\u767b\u9332"
+                        },
+                        "text": {
+                            "type": "mrkdwn",
+                            "text": ":smiling_imp: \u3053\u306e\u6642\u9593\u306b\u8d77\u304d\u308b\u3068\u3044\u3046\u899a\u609f\u306f\u3067\u304d\u307e\u3057\u305f\u304b? :smiling_imp: "
+                        },
+                        "confirm": {
+                            "type": "plain_text",
+                            "text": "\u3067\u304d\u305f!"
+                        },
+                        "deny": {
+                            "type": "plain_text",
+                            "text": "\u5909\u66f4\u3059\u308b!"
+                        }
+                    },
+                    "value": "OK",
+                    "action_id": "register_date"
+                }
+            ]
+        }
+    ]
 }
