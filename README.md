@@ -19,7 +19,6 @@ export "FIREBASE_KEY" = <鍵>
 
 ```python
 pip install slack_bot
-pip install flask
 pip install firebase
 ```
 
