@@ -16,9 +16,9 @@ def convert_to_timestamp(year, month, day, hour, minute):
 
     return int(timestamp) # 整数値で返す
 
-# 起床メッセージのスケジューリング
-def wu_schedule_message(text, channel_id, scheduled_time):
-    with open("JSON/wakeup_scheduled_message.json", "r") as f:
+# メッセージのスケジューリング
+def schedule_message(jsf, text, channel_id, scheduled_time):
+    with open(jsf, "r") as f:
         message_payload = json.load(f)
 
     app.client.chat_scheduleMessage(
@@ -28,19 +28,7 @@ def wu_schedule_message(text, channel_id, scheduled_time):
         blocks = message_payload["blocks"]
     )
 
-# 寝坊メッセージのスケジューリング
-def os_schedule_message(text, channel_id, scheduled_time):
-    with open("JSON/overslept_scheduled_message.json", "r") as f:
-        message_payload = json.load(f)
-
-    app.client.chat_scheduleMessage(
-        text = text,
-        channel = channel_id,
-        post_at = scheduled_time,
-        blocks = message_payload["blocks"]
-    )
-
-# ここは後々@app.actionに変更
+# 後に@app.actionに変更
 @app.message("test")
 def send_scheduled_message():
     # チャンネルID
@@ -49,15 +37,18 @@ def send_scheduled_message():
     # 起床確認
     text = "起床予定時刻の１０分前になりました！起きていますか？"
 
-    # 予定時刻の計算（10分前）
-    scheduled_time = convert_to_timestamp(2023, 6, 14, 20, 41) - 60# YYYYMMDDHHMM
-
-    wu_schedule_message(text, channel_id, scheduled_time)
+    # 予定時刻の計算
+    scheduled_time = convert_to_timestamp(2023, 6, 14, 20, 41) - 600 # 設定の10分前
     
-"""@app.action("wakeup")
-def wakeup_confirm(ack, body, say):
+    # jsonファイルの読込
+    jst = "JSON/wakeup_scheduled_message.json"
+
+    schedule_message(jst, text, channel_id, scheduled_time)
+    
+@app.action("wakeup")
+def wakeup_confirm(ack, say):
     ack()
-    say("起床が確認出来ました！おはようございます☀️")"""
+    say("起床が確認出来ました！おはようございます☀️")
     
 @app.action("wakeup")
 def unwakeup():
@@ -67,10 +58,13 @@ def unwakeup():
     # 起床確認
     text = ""
 
-    # 予定時刻の計算（10分前）
+    # 予定時刻の計算
     scheduled_time = convert_to_timestamp(2023, 6, 14, 20, 41) # YYYYMMDDHHMM
-
-    os_schedule_message(text, channel_id, scheduled_time)
+    
+    # jsonファイルの読込
+    jst = "JSON/overslept_scheduled_message.json"
+    
+    schedule_message(jst, text, channel_id, scheduled_time)
     
 
 if __name__ == "__main__":
