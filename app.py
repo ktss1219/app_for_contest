@@ -12,53 +12,8 @@ def send_message_from_json(json_file_path, channel_id):
     
     app.client.chat_postMessage(channel=channel_id, **json_data)
 
-def make_time_data(n):
-    num = str(n)
-    data = [
-        {
-            "text": {
-                "type": "plain_text",
-                "text": num,
-                "emoji": False
-            },
-            "value": num
-        }
-    ]
-    return data
-
-def add_to_existing_section(json_file_path, section_text, start, end):
-    with open(json_file_path, "r+") as json_file:
-        #fcntl.flock(json_file.fileno(), fcntl.LOCK_EX)
-        json_data = json.load(json_file)
-        
-        if end == 24:
-            for i in range(start, end):
-                option = make_time_data(i)
-                json_data["blocks"][3]["elements"][0]["options"].append(option)
-        else:
-             for i in range(start, end):
-                option = make_time_data(i)
-                json_data["blocks"][5]["elements"][0]["options"].append(option)
-    
-        json_file.seek(0)
-        json.dump(json_data, json_file, indent=4)
-        json_file.truncate()
-        #fcntl.flock(json_file.fileno(), fcntl.LOCK_UN)
-
-
-def extract_selected_values(payload):
-    actions = payload["actions"]
-    selected_values = []
-    for action in actions:
-        if action["action_id"] == "select_date" or action["action_id"] == "select_hour" or action["action_id"] == "select_minute":
-            selected_values.append(action["selected_option"]["value"])
-    return selected_values
-
-
 @app.message("登録")
 def select_date(say):
-    add_to_existing_section("JSON/register_date.json", "起きたい時間(時)を選んでください", 0, 24)
-    add_to_existing_section("JSON/register_date.json", "起きたい時間(分)を選んでください", 1, 60)
     send_message_from_json("JSON/register_date.json","C05A7G0ARB7")
 
 
