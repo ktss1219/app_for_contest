@@ -20,7 +20,7 @@ export "FIREBASE_KEY" = <鍵>
 各種パッケージのダウンロード
 
 ```python
-pip install slack_bot
+pip install slack_bolt
 pip install firebase
 ```
 
