@@ -9,16 +9,11 @@ cd app_for_contest
 ```
 環境変数の設定
 
+
 ```python
 export "SLACK_BOT_TOKEN" = <ボットトークン>
 export "SLACK_APP_TOKEN" = <アプリレベルトークン>
 export "FIREBASE_KEY" = <鍵>
-```
-
-```
-set "SLACK_BOT_TOKEN" = <ボットトークン>
-set "SLACK_APP_TOKEN" = <アプリレベルトークン>
-set "FIREBASE_KEY" = <鍵>
 ```
 
 
