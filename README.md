@@ -18,5 +18,6 @@ export "FIREBASE_KEY" = <鍵>
 ```python
 pip install slack_bolt
 pip install firebase
+pip install firebase-admin
 ```
 

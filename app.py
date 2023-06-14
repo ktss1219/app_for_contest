@@ -1,8 +1,10 @@
 import os
+from app_for_contest.secret import save_to_firestore
 from slack_bolt import App
 import json
 import fcntl
 from slack_bolt.adapter.socket_mode import SocketModeHandler
+import secret #add secret.py
 
 app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
 
@@ -83,6 +85,7 @@ def handle_secret_modal_submission(ack, body, client):
     ack()
     user_input = body["view"]["state"]["values"]["secret_input"]["secret_input"]["value"]
     message = f"あなたの秘密は {user_input} です"
+    save_to_firestore(user_input)
     client.chat_postMessage(channel="C05A7G0ARB7", text=message)
 
 # アプリ起動
