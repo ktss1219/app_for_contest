@@ -28,7 +28,7 @@ def make_time_data(n):
 
 def add_to_existing_section(json_file_path, section_text, start, end):
     with open(json_file_path, "r+") as json_file:
-        fcntl.flock(json_file.fileno(), fcntl.LOCK_EX)
+        #fcntl.flock(json_file.fileno(), fcntl.LOCK_EX)
         json_data = json.load(json_file)
         
         if end == 24:
@@ -43,7 +43,7 @@ def add_to_existing_section(json_file_path, section_text, start, end):
         json_file.seek(0)
         json.dump(json_data, json_file, indent=4)
         json_file.truncate()
-        fcntl.flock(json_file.fileno(), fcntl.LOCK_UN)
+        #fcntl.flock(json_file.fileno(), fcntl.LOCK_UN)
 
 
 def extract_selected_values(payload):
