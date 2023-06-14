@@ -1,6 +1,7 @@
 import os
 from slack_bolt import App
 import json
+import logging
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 
 app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
@@ -16,7 +17,7 @@ GLOBAL_MINUTE=0
 #
 
 def send_message_from_json(json_file_path, channel_id):
-    with open(json_file_path, "r") as file:
+    with open(json_file_path, "r", encoding="UTF-8") as file:
         json_data = json.load(file)
     
     app.client.chat_postMessage(channel=channel_id, **json_data)
@@ -31,8 +32,8 @@ def select_date(say):
 def handle_register_hour(ack, body, say):
     global GLOBAL_DATE
     GLOBAL_DATE = body["actions"][0]["selected_date"]
-    with open("selected_date.json", "w") as file:
-        json.dump(GLOBAL_DATE, file)
+    #with open("selected_date.json", "w") as file:
+        #json.dump(GLOBAL_DATE, file)
         #say(GLOBAL_DATE)
     ack()
     global GLOBAL_YEAR, GLOBAL_MONTH, GLOBAL_DAY
@@ -43,8 +44,8 @@ def handle_register_hour(ack, body, say):
 def handle_register_hour(ack, body, say):
     global GLOBAL_HOUR
     GLOBAL_HOUR = body["actions"][0]["selected_option"]["value"]
-    with open("selected_date.json", "w") as file:
-        json.dump(GLOBAL_HOUR, file)
+    #with open("selected_date.json", "w") as file:
+        #json.dump(GLOBAL_HOUR, file)
         #say(GLOBAL_HOUR)
     ack()
 
@@ -53,8 +54,8 @@ def handle_register_hour(ack, body, say):
 def handle_register_minute(ack, body, say):
     global GLOBAL_MINUTE
     GLOBAL_MINUTE = body["actions"][0]["selected_option"]["value"]
-    with open("selected_date.json", "w") as file:
-        json.dump(GLOBAL_MINUTE, file)
+    #with open("selected_date.json", "w") as file:
+        #json.dump(GLOBAL_MINUTE, file)
         #say(GLOBAL_MINUTE)
     ack()
     
@@ -65,14 +66,18 @@ def check_register_date(ack, body, say):
     ack()
     message = f"あなたが登録したのは、{GLOBAL_YEAR}年{GLOBAL_MONTH}月{GLOBAL_DAY}日{GLOBAL_HOUR}時{GLOBAL_MINUTE}分です"
     say(message)
-    
+    say(f"続いて秘密の入力に移ります\n内容が「~こと」となるように入力してください")
+    #send_message_from_json("JSON/register_secret.json", "C05A7G0ARB7")
 
-@app.view("secret_modal")
-def handle_secret_modal_submission(ack, body, client):
-    ack()
-    user_input = body["view"]["state"]["values"]["secret_input"]["secret_input"]["value"]
-    message = f"あなたの秘密は {user_input} です"
-    client.chat_postMessage(channel="C05A7G0ARB7", text=message)
+@app.event("message")
+def handle_message_events(body, say):
+    # ユーザーからのメッセージを取得
+    user_message = body["event"]["text"]
+    if user_message.endswith("こと"):
+       message = f"以下の秘密を登録しました\n{user_message}"
+       say(message)
+    else:
+        say(user_message)
 
 # アプリ起動
 if __name__ == "__main__":
