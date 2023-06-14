@@ -1,6 +1,14 @@
 {
 	"blocks": [
 		{
+			"type": "section",
+			"text": {
+				"type": "plain_text",
+				"text": "起床予定時刻の１０分前になりました！起きていますか？",
+				"emoji": true
+			}
+		},
+		{
 			"type": "actions",
 			"elements": [
 				{
@@ -11,7 +19,7 @@
 						"emoji": true
 					},
 					"value": "click_me_123",
-					"action_id": "actionId-0"
+					"action_id": "wakeup"
 				}
 			]
 		}

@@ -35,12 +35,17 @@ def send_scheduled_message():
     channel_id = "C05A7G0ARB7"
     
     # 起床確認
-    text = "おはようございます！起床予定時刻の１０分前になりました！"
+    text = "起床予定時刻の１０分前になりました！起きていますか？"
 
     # 予定時刻の計算（10分前）
-    scheduled_time = convert_to_timestamp(2023, 6, 14, 17, 24)# YYYYMMDDHHMM
+    scheduled_time = convert_to_timestamp(2023, 6, 14, 17, 51)# YYYYMMDDHHMM
 
     schedule_message(text, channel_id, scheduled_time)
+    
+@app.action("wakeup")
+def wakeup_confirm(ack, body, say):
+    ack()
+    say("起床が確認出来ました！おはようございます☀️")
 
 if __name__ == "__main__":
     SocketModeHandler(app, os.environ["SLACK_APP_TOKEN"]).start()
