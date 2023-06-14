@@ -1,79 +1,79 @@
-from flask import Flask, request
-from slack_sdk import WebClient
-from slack_sdk.errors import SlackApiError
+import os
+from slack_bolt import App
 import json
-import fcntl
+from slack_bolt.adapter.socket_mode import SocketModeHandler
 
-app = Flask(__name__)
+app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
 
-#選択する時間データの作成
-def make_time_data(n):
-    num = str(n)
-    data = [
-        {
-            "text": {
-                "type": "plain_text",
-                "text": num,
-                "emoji": False
-            },
-            "value": num
-        }
-    ]
-    return data
+#グローバル変数の初期化
+GLOBAL_DATE=0
+GLOBAL_YEAR=0
+GLOBAL_MONTH=0
+GLOBAL_DAY=0
+GLOBAL_HOUR=0
+GLOBAL_MINUTE=0
 
-JSON_FILE_PATH = "JSON/register_date.json"  
+#
 
-def add_to_existing_section(JSON_FILE_PATH, section_text, start, end):
-    with open(JSON_FILE_PATH, "r+") as json_file:
-        fcntl.flock(json_file.fileno(), fcntl.LOCK_EX)
-        json_data = json.load(json_file)
-        blocks = json_data["blocks"]
-        
-        for block in blocks:
-            if block.get("type") == "section":
-                block_text = block.get("text", {}).get("text")
-                
-                if block_text == section_text:
-                    accessory = block.get("accessory")
-                    
-                    if accessory and accessory.get("type") == "static_select":
-                        for i in range(start, end):
-                            data = make_time_data(i)
-                            accessory["options"].extend(data)
-                            
-        json_file.seek(0)
-        json.dump(json_data, json_file, indent=4)
-        json_file.truncate()
-        fcntl.flock(json_file.fileno(), fcntl.LOCK_UN)
-        
-@app.route("/slack/events", methods=["POST"])
-def slack_events():
-    data = request.json
-    
-    # イベントの種類を取得
-    event_type = data.get("event", {}).get("type")
-    
-    if event_type == "message":
-        message_text = data.get("event", {}).get("text")
-    
-        if "登録" in message_text:
-            add_to_existing_section("register_date.json", "起きたい時間(時)を選んでください", 0, 24)
-            add_to_existing_section("register_date.json", "起きたい時間(分)を選んでください", 1, 60)
-            
-            send_to_slack_message("JSON/register_date.json")
-            
-    return "", 200
-
-def send_to_slack_message(json_file_path):
+def send_message_from_json(json_file_path, channel_id):
     with open(json_file_path, "r") as file:
         json_data = json.load(file)
-        
-    client = WebClient(token="your_token")
-    try:
-        response = client.chat_postMessage(**json_data)
-        print("メッセージを送信しました")
-    except SlackApiError as e:
-        print(f"メッセージの送信に失敗しました: {e.response['error']}")
-        
+    
+    app.client.chat_postMessage(channel=channel_id, **json_data)
+
+
+@app.message("登録")
+def select_date(say):
+    send_message_from_json("JSON/register_date.json","C05A7G0ARB7")
+
+#選択した日付の抽出
+@app.action("select_date")
+def handle_register_hour(ack, body, say):
+    global GLOBAL_DATE
+    GLOBAL_DATE = body["actions"][0]["selected_date"]
+    with open("selected_date.json", "w") as file:
+        json.dump(GLOBAL_DATE, file)
+        #say(GLOBAL_DATE)
+    ack()
+    global GLOBAL_YEAR, GLOBAL_MONTH, GLOBAL_DAY
+    GLOBAL_YEAR, GLOBAL_MONTH, GLOBAL_DAY = GLOBAL_DATE.split("-")
+
+#選択した時間の抽出
+@app.action("select_hour")
+def handle_register_hour(ack, body, say):
+    global GLOBAL_HOUR
+    GLOBAL_HOUR = body["actions"][0]["selected_option"]["value"]
+    with open("selected_date.json", "w") as file:
+        json.dump(GLOBAL_HOUR, file)
+        #say(GLOBAL_HOUR)
+    ack()
+
+#選択した分の抽出
+@app.action("select_minute")
+def handle_register_minute(ack, body, say):
+    global GLOBAL_MINUTE
+    GLOBAL_MINUTE = body["actions"][0]["selected_option"]["value"]
+    with open("selected_date.json", "w") as file:
+        json.dump(GLOBAL_MINUTE, file)
+        #say(GLOBAL_MINUTE)
+    ack()
+    
+#送信ボタンを押したときの処理
+@app.action("register_date")
+def check_register_date(ack, body, say):
+    global GLOBAL_YEAR, GLOBAL_MONTH, GLOBAL_DAY, GLOBAL_DAY, GLOBAL_HOUR, GLOBAL_MINUTE
+    ack()
+    message = f"あなたが登録したのは、{GLOBAL_YEAR}年{GLOBAL_MONTH}月{GLOBAL_DAY}日{GLOBAL_HOUR}時{GLOBAL_MINUTE}分です"
+    say(message)
+    
+
+@app.view("secret_modal")
+def handle_secret_modal_submission(ack, body, client):
+    ack()
+    user_input = body["view"]["state"]["values"]["secret_input"]["secret_input"]["value"]
+    message = f"あなたの秘密は {user_input} です"
+    client.chat_postMessage(channel="C05A7G0ARB7", text=message)
+
+# アプリ起動
 if __name__ == "__main__":
-    app.run()
+    SocketModeHandler(app, os.environ["SLACK_APP_TOKEN"]).start()
