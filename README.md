@@ -15,6 +15,13 @@ export "SLACK_APP_TOKEN" = <アプリレベルトークン>
 export "FIREBASE_KEY" = <鍵>
 ```
 
+```
+set "SLACK_BOT_TOKEN" = <ボットトークン>
+set "SLACK_APP_TOKEN" = <アプリレベルトークン>
+set "FIREBASE_KEY" = <鍵>
+```
+
+
 各種パッケージのダウンロード
 
 ```python
