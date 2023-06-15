@@ -2,11 +2,13 @@ import os
 import json
 import firebase_admin
 import time
+from slack_sdk import WebClient
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 from datetime import datetime, timedelta
 
 app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
+client = WebClient(token=os.environ.get("SLACK_BOT_TOKEN"))
 
 TIMEOUT = 60
 flag = False
@@ -35,8 +37,13 @@ def schedule_message(jsf, text, channel_id, scheduled_time):
 # 後に@app.actionに変更
 @app.message("test")
 def send_scheduled_message(message):
-    mention = f"<@{message['user']}>"
+    id = message['user']
     
+    # ユーザ情報を取得
+    response = client.users_info(user=id)
+    user = response['user']
+    username = user['name']  
+      
     # チャンネルID
     channel_id = "C05A7G0ARB7"
     
@@ -44,7 +51,7 @@ def send_scheduled_message(message):
     text = "起床予定時刻の１０分前になりました！起きていますか？"
 
     # 予定時刻の計算
-    scheduled_time = convert_to_timestamp(2023, 6, 15, 2, 17)- 60 # 設定の10分前
+    scheduled_time = convert_to_timestamp(2023, 6, 15, 18, 42)- 60 # 設定の10分前
     
     # jsonファイルの読込
     jst = "JSON/wakeup_scheduled_message.json"
@@ -63,21 +70,21 @@ def send_scheduled_message(message):
 			"type": "section",
 			"text": {
 				"type": "plain_text",
-				"text": f"残念ながら、{mention}さんは寝坊してしまったようです…",
+				"text": f"残念ながら、<@{username}>さんは寝坊してしまったようです…",
 			}
 		},
 		{
 			"type": "section",
 			"text": {
 				"type": "plain_text",
-				"text": f"たいっっっっっっっっへん心苦しいですが、{mention}さんの秘密を暴露したいと思います😄",
+				"text": f"たいっっっっっっっっへん心苦しいですが、<@{username}>さんの秘密を暴露したいと思います😄",
 			}
 		},
 		{
 			"type": "section",
 			"text": {
 				"type": "plain_text",
-				"text": f"なんと、{mention}さんは〇〇だそうです！",
+				"text": f"なんと、<@{username}>さんは〇〇だそうです！",
 			}
 		}
 	]
