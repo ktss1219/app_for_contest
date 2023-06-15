@@ -8,8 +8,7 @@ import secret
 from firebase_admin import firestore
 from firebase_admin import credentials
 
-firebase_key_path = os.environ.get('serviceAccountKey.json')
-cred = credentials.Certificate(firebase_key_path)# Firebase Admin SDKの秘密鍵へのパス
+cred = credentials.Certificate("JSON/serviceAccountKey.json")# Firebase Admin SDKの秘密鍵へのパス
 db = firestore.client()
 app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
 
