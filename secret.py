@@ -3,7 +3,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 
-cred = credentials.Certificate('FIREBASE_KEY')  # Firebase Admin SDKの秘密鍵へのパス
+cred = credentials.Certificate('serviceAccountKey.json')  # Firebase Admin SDKの秘密鍵へのパス
 #Firebase admin sdk 初期化
 firebase_admin.initialize_app(cred)
 db = firestore.client()
