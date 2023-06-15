@@ -1,19 +1,19 @@
 # app_for_contest
 "ヒリつき"によって起床を促進するbot
 
-## 環境設定
-リポジトリのクローン
+## setup
+clone repository
 ```python
 git clone https://github.com/ktss1219/app_for_contest
 cd app_for_contest
 ```
-環境変数の設定(Mac)
+set env(Mac)
 ```python
 export "SLACK_BOT_TOKEN" = <ボットトークン>
 export "SLACK_APP_TOKEN" = <アプリレベルトークン>
 ```
 
-各種パッケージのダウンロード
+download packages
 ```python
 pip install slack_bolt
 pip install firebase-admin

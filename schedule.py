@@ -53,7 +53,7 @@ def send_scheduled_message(message):
     text = "起床予定時刻の１０分前になりました！起きていますか？"
 
     # 予定時刻の計算
-    scheduled_time = convert_to_timestamp(2023, 6, 15, 19, 9)- 60 # 設定の10分前
+    scheduled_time = convert_to_timestamp(2023, 6, 16, 0, 1)- 60 # 設定の10分前
     
     # jsonファイルの読込
     jst = "JSON/wakeup_scheduled_message.json"
