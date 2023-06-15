@@ -98,24 +98,5 @@ def wakeup_confirm(ack, say):
     ack()
     say("起床が確認出来ました！おはようございます☀️")
     
-"""   
-@app.action("default")
-def unwakeup():
-     # チャンネルID
-    channel_id = "C05A7G0ARB7"
-    
-    # 起床確認
-    text = ""
-
-    # 予定時刻の計算
-    scheduled_time = convert_to_timestamp(2023, 6, 15, 0, 19) # YYYYMMDDHHMM
-    
-    # jsonファイルの読込
-    jst = "JSON/overslept_scheduled_message.json"
-    
-    schedule_message(jst, text, channel_id, scheduled_time)
-"""
-
-
 if __name__ == "__main__":
     SocketModeHandler(app, os.environ["SLACK_APP_TOKEN"]).start()
