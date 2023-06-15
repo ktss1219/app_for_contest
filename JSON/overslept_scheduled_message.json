@@ -1,0 +1,28 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "plain_text",
+				"text": "残念ながら、<@{message['user']}>さんは寝坊してしまったようです…",
+				"emoji": true
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "plain_text",
+				"text": "たいっっっっっっっっへん心苦しいですが、f<@{message['user']}>さんの秘密を暴露したいと思います😄",
+				"emoji": true
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "plain_text",
+				"text": "なんと、f<@{message['user']}>さんは〇〇だそうです！",
+				"emoji": true
+			}
+		}
+	]
+}
