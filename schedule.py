@@ -89,7 +89,6 @@ def send_scheduled_message(message):
 		}
 	]
         )
-    
 @app.action("wakeup")
 def wakeup_confirm(ack, say):
     global flag
