@@ -32,9 +32,6 @@ def select_date(say):
 def handle_register_hour(ack, body, say):
     global GLOBAL_DATE
     GLOBAL_DATE = body["actions"][0]["selected_date"]
-    #with open("selected_date.json", "w") as file:
-        #json.dump(GLOBAL_DATE, file)
-        #say(GLOBAL_DATE)
     ack()
     global GLOBAL_YEAR, GLOBAL_MONTH, GLOBAL_DAY
     GLOBAL_YEAR, GLOBAL_MONTH, GLOBAL_DAY = GLOBAL_DATE.split("-")
@@ -44,9 +41,6 @@ def handle_register_hour(ack, body, say):
 def handle_register_hour(ack, body, say):
     global GLOBAL_HOUR
     GLOBAL_HOUR = body["actions"][0]["selected_option"]["value"]
-    #with open("selected_date.json", "w") as file:
-        #json.dump(GLOBAL_HOUR, file)
-        #say(GLOBAL_HOUR)
     ack()
 
 #選択した分の抽出
@@ -54,9 +48,6 @@ def handle_register_hour(ack, body, say):
 def handle_register_minute(ack, body, say):
     global GLOBAL_MINUTE
     GLOBAL_MINUTE = body["actions"][0]["selected_option"]["value"]
-    #with open("selected_date.json", "w") as file:
-        #json.dump(GLOBAL_MINUTE, file)
-        #say(GLOBAL_MINUTE)
     ack()
     
 #送信ボタンを押したときの処理
@@ -67,7 +58,6 @@ def check_register_date(ack, body, say):
     message = f"あなたが登録したのは、{GLOBAL_YEAR}年{GLOBAL_MONTH}月{GLOBAL_DAY}日{GLOBAL_HOUR}時{GLOBAL_MINUTE}分です"
     say(message)
     say(f"続いて秘密の入力に移ります\n内容が「~こと」となるように入力してください")
-    #send_message_from_json("JSON/register_secret.json", "C05A7G0ARB7")
 
 @app.event("message")
 def handle_message_events(body, say):
