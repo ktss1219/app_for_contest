@@ -72,7 +72,7 @@ def check_register_date(ack, body, say):
     ack()
     message = f"あなたが登録したのは、{GLOBAL_YEAR}年{GLOBAL_MONTH}月{GLOBAL_DAY}日{GLOBAL_HOUR}時{GLOBAL_MINUTE}分です"
     say(message)
-    say(f"続いて秘密の入力に移ります\n内容が「~こと」となるように入力してください")
+    say(f"日付や時刻を間違えた時はもう一度「登録」といれてください\n続いて秘密の入力に移ります\n内容が「~こと」となるように入力してください")
 
 @app.event("message")
 def handle_message_events(body, say):
