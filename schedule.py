@@ -37,9 +37,11 @@ def schedule_message(jsf, text, channel_id, scheduled_time):
 # 後に@app.actionに変更
 @app.message("test")
 def send_scheduled_message(message):
-    id = message['user']
+    # 秘密
+    secret = "大学に入ってからおもらしをしたことがある"
     
     # ユーザ情報を取得
+    id = message['user']
     response = client.users_info(user=id)
     user = response['user']
     username = user['name']  
@@ -51,7 +53,7 @@ def send_scheduled_message(message):
     text = "起床予定時刻の１０分前になりました！起きていますか？"
 
     # 予定時刻の計算
-    scheduled_time = convert_to_timestamp(2023, 6, 15, 18, 42)- 60 # 設定の10分前
+    scheduled_time = convert_to_timestamp(2023, 6, 15, 19, 9)- 60 # 設定の10分前
     
     # jsonファイルの読込
     jst = "JSON/wakeup_scheduled_message.json"
@@ -84,7 +86,7 @@ def send_scheduled_message(message):
 			"type": "section",
 			"text": {
 				"type": "plain_text",
-				"text": f"なんと、<@{username}>さんは〇〇だそうです！",
+				"text": f"なんと、<@{username}>さんは\n{secret}\nそうです！",
 			}
 		}
 	]
