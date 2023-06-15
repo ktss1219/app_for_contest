@@ -16,6 +16,6 @@ export "SLACK_APP_TOKEN" = <アプリレベルトークン>
 各種パッケージのダウンロード
 ```python
 pip install slack_bolt
-pip install firebase
+pip install firebase-admin
 ```
 
