@@ -9,7 +9,7 @@ from firebase_admin import firestore, credentials
 from datetime import datetime
 
 app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
-client = WebClient(token="YOUR_SLACK_API_TOKEN")
+client = WebClient(token=os.environ.get("SLACK_BOT_TOKEN"))
 
 # 秘密鍵
 cred = credentials.Certificate("JSON/serviceAccountKey.json")
@@ -56,7 +56,7 @@ def convert_to_timestamp(year, month, day, hour, minute):
     return int(timestamp) # 整数値で返す
 
 # メッセージのスケジューリング
-def schedule_message(jsf, text, channel_id, scheduled_time):
+def schedule_message(jsf, text, channel_id, scheduled_time, y, mo, d, h, mi):
     with open(jsf, "r") as f:
         message_payload = json.load(f)
 
@@ -67,7 +67,8 @@ def schedule_message(jsf, text, channel_id, scheduled_time):
         blocks = message_payload["blocks"]
     )
     # n分間の待機
-    time.sleep(60)
+    timeout = (datetime(y, mo, d, h, mi) - datetime.now()).total_seconds() 
+    time.sleep(timeout)
 
 @app.message("登録")
 def select_date(message):
@@ -171,12 +172,12 @@ def start_secret(ack: Ack, body: dict, client: WebClient, say):
     text = "起床予定時刻の１０分前になりました！起きていますか？"
 
     # 予定時刻の計算
-    scheduled_time = convert_to_timestamp(GLOBAL_YEAR, GLOBAL_MONTH_RE, GLOBAL_DAY_RE, GLOBAL_HOUR, GLOBAL_MINUTE)- 60 # 設定の10分前
+    scheduled_time = convert_to_timestamp(GLOBAL_YEAR, GLOBAL_MONTH_RE, GLOBAL_DAY_RE, GLOBAL_HOUR, GLOBAL_MINUTE) - 600 # 設定の10分前
     
     # jsonファイルの読込
     jst = "JSON/wakeup_scheduled_message.json"
 
-    schedule_message(jst, text, channel_id, scheduled_time)
+    schedule_message(jst, text, channel_id, scheduled_time, GLOBAL_YEAR, GLOBAL_MONTH_RE, GLOBAL_DAY_RE, GLOBAL_HOUR, GLOBAL_MINUTE)
     
     if not flag:
     # タイムアウト時の処理
