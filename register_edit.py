@@ -41,7 +41,7 @@ def send_message_from_json(json_file_path, channel_id):
 def select_date(message):
     global USER_ID
     USER_ID = message['user']
-    send_message_from_json("JSON/check_register.json","C05A7G0ARB7")
+    send_message_from_json("JSON/check_register.json", USER_ID)
 
 @app.action("yes_register")
 def start_register(ack: Ack, body: dict, client: WebClient):
@@ -100,8 +100,8 @@ def handle_message_events(ack, say):
     global USER_ID
     ack()
     message = f"あなたが登録したのは、{GLOBAL_YEAR}年{GLOBAL_MONTH}月{GLOBAL_DAY}日{GLOBAL_HOUR}時{GLOBAL_MINUTE}分です"
-    say(channel ="C05A7G0ARB7", text=message)
-    send_message_from_json("JSON/check_secret.json", "C05A7G0ARB7")
+    say(channel = USER_ID, text=message)
+    send_message_from_json("JSON/check_secret.json", USER_ID)
 
 @app.action("yes_secret")
 def start_secret(ack: Ack, body: dict, client: WebClient, say):
@@ -121,7 +121,7 @@ def save_secret(say, body, ack):
     global SECRET
     ack()
     message = f"登録が完了しました！それでは、期日にお会いしましょう😎"
-    say(channel ="C05A7G0ARB7", text=message)
+    say(channel = USER_ID, text=message)
     
     secret.save_to_firestore(SECRET)
     
