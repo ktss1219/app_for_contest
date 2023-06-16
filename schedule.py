@@ -6,11 +6,18 @@ from slack_sdk import WebClient
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 from datetime import datetime, timedelta
+from firebase_admin import firestore,credentials,db
 
 app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
 client = WebClient(token=os.environ.get("SLACK_BOT_TOKEN"))
 
-TIMEOUT = 60
+# 秘密鍵
+cred = credentials.Certificate("JSON/serviceAccountKey.json")
+firebase_admin.initialize_app(cred)
+
+db = firestore.client()
+
+USER_ID = 0
 flag = False
 
 # 予定時刻（10分前）のUnixTime変換
@@ -33,12 +40,13 @@ def schedule_message(jsf, text, channel_id, scheduled_time):
         post_at = scheduled_time, 
         blocks = message_payload["blocks"]
     )
+    time.sleep(60)
 
 # 後に@app.actionに変更
 @app.message("test")
 def send_scheduled_message(message):
-    # 秘密
-    secret = "大学に入ってからおもらしをしたことがある"
+    global USER_ID
+    USER_ID = message['user']
     
     # ユーザ情報を取得
     id = message['user']
@@ -53,18 +61,25 @@ def send_scheduled_message(message):
     text = "起床予定時刻の１０分前になりました！起きていますか？"
 
     # 予定時刻の計算
-    scheduled_time = convert_to_timestamp(2023, 6, 16, 0, 1)- 60 # 設定の10分前
+    scheduled_time = convert_to_timestamp(2023, 6, 16, 16, 55)- 60 # 設定の10分前
     
     # jsonファイルの読込
     jst = "JSON/wakeup_scheduled_message.json"
 
     schedule_message(jst, text, channel_id, scheduled_time)
     
-    # タイムアウト時間まで待機
-    time.sleep(TIMEOUT)
     
     if not flag:
     # タイムアウト時の処理
+        #Firestoreからデータを取得
+        doc_ref = db.collection('user').document(USER_ID)
+        doc = doc_ref.get()
+        if doc.exists:
+            secret_info = doc.to_dict()['private']
+            USER_ID = 0
+        else:
+            secret_info = "秘密の情報がない"
+            
         app.client.chat_postMessage(
             channel = "C05A7G0ARB7",
             blocks =  [
@@ -86,7 +101,7 @@ def send_scheduled_message(message):
 			"type": "section",
 			"text": {
 				"type": "plain_text",
-				"text": f"なんと、<@{username}>さんは\n{secret}\nそうです！",
+				"text": f"なんと、<@{username}>さんの秘密は\n{secret_info}だそうです!",
 			}
 		}
 	]

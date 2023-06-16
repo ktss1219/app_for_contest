@@ -1,24 +1,18 @@
 import os
 import json
-import logging
-import secret
+import firebase_admin
 from slack_bolt import App, Ack, Say, BoltContext, Respond
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 from firebase_admin import firestore, credentials
 from slack_sdk import WebClient
-from slack_sdk.errors import SlackApiError
-
-
-app = App()
-client = WebClient(token="YOUR_SLACK_API_TOKEN")
-
-""""
-# 秘密鍵
-cred = credentials.Certificate("JSON/serviceAccountKey.json")
-db = firestore.client()
-"""
 
 app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
+client = WebClient(token="YOUR_SLACK_API_TOKEN")
+
+# 秘密鍵
+cred = credentials.Certificate("JSON/serviceAccountKey.json")
+firebase_admin.initialize_app(cred)
+db = firestore.client()
 
 # グローバル変数の初期化
 GLOBAL_DATE=0
@@ -36,6 +30,14 @@ def send_message_from_json(json_file_path, channel_id):
         json_data = json.load(file)
     app.client.chat_postMessage(channel=channel_id, **json_data)
 
+# ユーザーのヒミツをdatabaseに送信
+def save_to_firestore(secret):
+    global USER_ID
+    doc_ref = db.collection('user').document(USER_ID) 
+    doc_ref.set({
+        'private': secret
+    })
+    USER_ID=0
 
 @app.message("登録")
 def select_date(message):
@@ -127,8 +129,9 @@ def save_secret(say, body, ack):
     message = f"登録が完了しました！それでは、期日にお会いしましょう😎"
     say(channel = USER_ID, text = message)
     
-    secret.save_to_firestore(SECRET)
+    save_to_firestore(SECRET)
     
+# ここからschedued/pyの内容
         
 # アプリ起動
 if __name__ == "__main__":
