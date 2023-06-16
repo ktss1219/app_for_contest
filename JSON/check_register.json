@@ -1,0 +1,37 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "plain_text",
+				"text": "起きる日時の登録を始めますか？",
+				"emoji": true
+			}
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "始める",
+						"emoji": true
+					},
+					"value": "button1",
+					"action_id": "yes_register"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "やめとく",
+						"emoji": true
+					},
+					"value": "button2",
+					"action_id": "no_register"
+				}
+			]
+		}
+	]
+}
