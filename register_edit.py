@@ -28,6 +28,7 @@ GLOBAL_DAY=0
 GLOBAL_HOUR=0
 GLOBAL_MINUTE=0
 USER_ID = 0
+SECRET = 0
 
 # jsonの読み込み
 def send_message_from_json(json_file_path, channel_id):
@@ -110,25 +111,19 @@ def start_secret(ack: Ack, body: dict, client: WebClient, say):
     client.views_open(trigger_id=body["trigger_id"], view=view)
 
 @app.action("input_secret")
-def update(ack, body, client, say):
-    secret_ = body["actions"][0]["value"]
-    say(channel ="C05A7G0ARB7", text=secret_)
-
-@app.view("register_secret")
-def handle_message_events(ack, say):
-    ack()
-    message = f"登録が完了しました！それでは、期日にお会いしましょう😎"
-    say(channel ="C05A7G0ARB7", text=message)
+def update(body):
+    global SECRET
+    SECRET = body["actions"][0]["value"]
     
 # 秘密の保存(firebase)
-@app.view("input_secret")
+@app.view("register_secret")
 def save_secret(say, body, ack):
+    global SECRET
     ack()
-    secret_ = body["view"]["state"]["values"]["input_secret"]["input_secret"]["value"]
     message = f"登録が完了しました！それでは、期日にお会いしましょう😎"
     say(channel ="C05A7G0ARB7", text=message)
     
-    secret.save_to_firestore(secret_)
+    secret.save_to_firestore(SECRET)
     
         
 # アプリ起動
