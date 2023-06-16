@@ -1,6 +1,5 @@
 # app_for_contest
-"ヒリつき"によって起床を促進するbot
-
+prompt you to wake up by "Tingling"
 ## setup
 clone repository
 ```python
