@@ -1,5 +1,5 @@
 # app_for_contest
-prompt you to wake up by "Tingling"
+"Tingling" will wake you up on time.
 ## setup
 clone repository
 ```python
