@@ -113,15 +113,19 @@ def start_secret(ack: Ack, body: dict, client: WebClient, say):
 @app.action("input_secret")
 def update(body):
     global SECRET
-    SECRET = body["actions"][0]["value"]
+    #SECRET = body["view"]["state"]["values"]["OMd"]["input-action"]["value"]
     
 # 秘密の保存(firebase)
 @app.view("register_secret")
 def save_secret(say, body, ack):
     global SECRET
+    
+    SECRET = body["view"]["state"]["values"][body["view"]["blocks"][0]["block_id"]]["input_secret"]["value"]
+    
     ack()
+    
     message = f"登録が完了しました！それでは、期日にお会いしましょう😎"
-    say(channel = USER_ID, text=message)
+    say(channel = USER_ID, text = message)
     
     secret.save_to_firestore(SECRET)
     
